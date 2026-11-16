@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solicitar viaje | RapiTrip</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="barra">
+    <div class="barra-inner">
+      <a class="marca" href="index.html"><span class="logo"></span> RapiTrip</a>
+      <nav>
+        <a href="index.html#servicios">Servicios</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="reclamaciones.html">Reclamaciones</a>
+      </nav>
+      <a class="btn" href="solicitar.html">Solicitar viaje</a>
+    </div>
+  </header>
+  <main class="seccion">
+    <div class="wrap" style="max-width:720px">
+      <h1>Solicitar viaje</h1>
+      <p>Elige el servicio y deja tu destino. Te confirmamos el pedido en esta misma página. El cobro se realiza al finalizar el viaje.</p>
+      <form id="pedido">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" required>
+        <label for="telefono">Celular</label>
+        <input id="telefono" name="telefono" required inputmode="tel">
+        <label for="origen">Origen</label>
+        <input id="origen" name="origen" required placeholder="Dirección de recojo">
+        <label for="destino">Destino</label>
+        <input id="destino" name="destino" required placeholder="A dónde vas">
+        <label for="servicio">Servicio</label>
+        <select id="servicio" name="servicio">
+          <option>Económico · desde S/ 8.00</option>
+          <option>Comfort · desde S/ 10.00</option>
+          <option>Executive VIP · desde S/ 13.00</option>
+        </select>
+        <div class="fila">
+          <button class="btn" type="submit">Confirmar solicitud</button>
+        </div>
+        <div class="aviso" id="aviso"></div>
+      </form>
+    </div>
+  </main>
+  <footer class="pie">
+    <div class="pie-inner">
+      <p class="legal">RapiTrip · Eric Manuel Estrada Castillo · RUC 10705521447</p>
+      <nav>
+        <a href="terminos.html">Términos</a>
+        <a href="devoluciones.html">Cambios y devoluciones</a>
+        <a href="reclamaciones.html">Libro de reclamaciones</a>
+      </nav>
+    </div>
+  </footer>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const pedido = params.get("servicio");
+    if (pedido) {
+      const lista = document.getElementById("servicio");
+      for (const op of lista.options) {
+        if (op.text.startsWith(pedido)) lista.value = op.text;
+      }
+    }
+    document.getElementById("pedido").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const codigo = "RT-" + Date.now().toString().slice(-6);
+      const aviso = document.getElementById("aviso");
+      aviso.style.display = "block";
+      aviso.textContent = "Solicitud " + codigo + " registrada. Un conductor de " + document.getElementById("servicio").value.split("·")[0].trim() + " puede tomar el viaje. El precio final se muestra antes de pagar.";
+    });
+  </script>
+</body>
+</html>

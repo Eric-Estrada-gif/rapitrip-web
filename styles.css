@@ -1,0 +1,123 @@
+:root {
+  --amarillo: #ffb300;
+  --amarillo-suave: #fff4cc;
+  --tinta: #111111;
+  --suave: #5e5e5e;
+  --fondo: #f7f7f7;
+  --linea: #111111;
+  --blanco: #ffffff;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  color: var(--tinta);
+  background: var(--fondo);
+  line-height: 1.5;
+}
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+.barra {
+  background: var(--blanco);
+  border-bottom: 1.5px solid var(--tinta);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.barra-inner, .wrap, .pie-inner {
+  width: min(1040px, calc(100% - 32px));
+  margin: 0 auto;
+}
+.barra-inner, .pie-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 72px;
+}
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-size: 22px;
+}
+.logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--amarillo);
+  border: 1.5px solid var(--tinta);
+}
+nav { display: flex; gap: 18px; flex-wrap: wrap; }
+nav a { text-decoration: none; font-size: 14px; font-weight: 600; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--amarillo);
+  color: var(--tinta);
+  text-decoration: none;
+  font-weight: 800;
+  border: 1.5px solid var(--tinta);
+  border-radius: 14px;
+  padding: 12px 18px;
+  cursor: pointer;
+}
+.btn.negro { background: var(--tinta); color: var(--blanco); }
+.btn.linea { background: var(--blanco); }
+
+.hero, .seccion { padding: 48px 0; }
+.hero {
+  background: var(--blanco);
+  border-bottom: 1.5px solid var(--tinta);
+}
+.hero h1, .seccion h1, .seccion h2 { letter-spacing: -0.03em; margin: 0 0 12px; }
+.hero h1 { font-size: 48px; line-height: 1.05; max-width: 14ch; }
+.bajada { font-size: 18px; max-width: 62ch; color: var(--tinta); }
+.fila { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.nota { color: var(--suave); font-size: 14px; }
+
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.card, .caja, form {
+  background: var(--blanco);
+  border: 1.5px solid var(--tinta);
+  border-radius: 18px;
+  padding: 18px;
+}
+.card h3 { margin: 12px 0 6px; }
+.precio { font-size: 28px; font-weight: 800; margin: 8px 0; }
+.ilustracion { width: 100%; height: 140px; }
+.datos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+label { display: block; font-size: 13px; font-weight: 700; margin: 12px 0 6px; }
+input, select, textarea {
+  width: 100%;
+  border: 1.5px solid var(--tinta);
+  border-radius: 12px;
+  padding: 12px;
+  font: inherit;
+  background: var(--blanco);
+}
+textarea { min-height: 120px; resize: vertical; }
+.aviso {
+  display: none;
+  margin-top: 16px;
+  background: var(--amarillo-suave);
+  border: 1.5px solid var(--tinta);
+  border-radius: 14px;
+  padding: 14px;
+}
+.pie { background: var(--blanco); border-top: 1.5px solid var(--tinta); }
+.pie a { text-decoration: none; font-weight: 700; }
+.legal { font-size: 13px; color: var(--suave); }
+
+@media (max-width: 800px) {
+  .hero h1 { font-size: 36px; }
+  .grid, .datos { grid-template-columns: 1fr; }
+  .barra-inner { flex-wrap: wrap; padding: 12px 0; }
+}

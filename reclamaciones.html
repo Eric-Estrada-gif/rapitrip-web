@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Libro de reclamaciones | RapiTrip</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="barra">
+    <div class="barra-inner">
+      <a class="marca" href="index.html"><span class="logo"></span> RapiTrip</a>
+      <a class="btn linea" href="index.html">Volver</a>
+    </div>
+  </header>
+  <main class="seccion">
+    <div class="wrap" style="max-width:760px">
+      <h1>Libro de reclamaciones</h1>
+      <p>Eric Manuel Estrada Castillo · RapiTrip · RUC 10705521447 · Lima, Perú · 977 341 754 · erickiio1415@gmail.com</p>
+      <p>Conforme al Código de Protección y Defensa del Consumidor. Respondemos en un plazo máximo de 15 días hábiles. La hoja de reclamación se genera en esta página.</p>
+      <form id="libro">
+        <label for="nombre">Nombre del consumidor</label>
+        <input id="nombre" required>
+        <label for="dni">DNI o CE</label>
+        <input id="dni" required>
+        <label for="domicilio">Domicilio</label>
+        <input id="domicilio" required>
+        <label for="telefono">Teléfono</label>
+        <input id="telefono" required>
+        <label for="correo">Correo</label>
+        <input id="correo" type="email" required>
+        <label for="tipo">Tipo</label>
+        <select id="tipo">
+          <option>Reclamo: disconformidad con el servicio</option>
+          <option>Queja: disconformidad con la atención</option>
+        </select>
+        <label for="bien">Servicio contratado</label>
+        <select id="bien">
+          <option>Viaje Económico</option>
+          <option>Viaje Comfort</option>
+          <option>Viaje Executive VIP</option>
+        </select>
+        <label for="monto">Monto (S/)</label>
+        <input id="monto" inputmode="decimal">
+        <label for="detalle">Detalle</label>
+        <textarea id="detalle" required></textarea>
+        <label for="pedido">Pedido del consumidor</label>
+        <textarea id="pedido" required></textarea>
+        <div class="fila"><button class="btn" type="submit">Registrar hoja</button></div>
+        <div class="aviso" id="aviso"></div>
+      </form>
+    </div>
+  </main>
+  <footer class="pie">
+    <div class="pie-inner">
+      <p class="legal">RapiTrip · Libro de reclamaciones</p>
+      <nav>
+        <a href="terminos.html">Términos</a>
+        <a href="devoluciones.html">Cambios y devoluciones</a>
+      </nav>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("libro").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const codigo = "LR-" + new Date().getFullYear() + "-" + Date.now().toString().slice(-5);
+      const aviso = document.getElementById("aviso");
+      aviso.style.display = "block";
+      aviso.textContent = "Hoja " + codigo + " registrada el " + new Date().toLocaleString("es-PE") + ". Guardamos tu " + document.getElementById("tipo").value.split(":")[0].toLowerCase() + " y te respondemos en un máximo de 15 días hábiles al correo indicado.";
+    });
+  </script>
+</body>
+</html>

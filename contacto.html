@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto | RapiTrip</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="barra">
+    <div class="barra-inner">
+      <a class="marca" href="index.html"><span class="logo"></span> RapiTrip</a>
+      <nav>
+        <a href="index.html#servicios">Servicios</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="reclamaciones.html">Reclamaciones</a>
+      </nav>
+      <a class="btn" href="solicitar.html">Solicitar viaje</a>
+    </div>
+  </header>
+  <main class="seccion">
+    <div class="wrap datos">
+      <div class="caja">
+        <h1>Contacto</h1>
+        <p><strong>Nombre comercial:</strong> RapiTrip</p>
+        <p><strong>Titular:</strong> Eric Manuel Estrada Castillo</p>
+        <p><strong>RUC:</strong> 10705521447</p>
+        <p><strong>Teléfono:</strong> <a href="tel:+51977341754">977 341 754</a></p>
+        <p><strong>Correo:</strong> <a href="mailto:erickiio1415@gmail.com">erickiio1415@gmail.com</a></p>
+        <p><strong>Ciudad:</strong> Lima, Perú</p>
+        <p class="nota">Horario de atención: todos los días, de 7:00 a 22:00.</p>
+      </div>
+      <form id="mensaje">
+        <h2>Escríbenos</h2>
+        <label for="nombre">Nombre</label>
+        <input id="nombre" required>
+        <label for="correo">Correo</label>
+        <input id="correo" type="email" required>
+        <label for="texto">Mensaje</label>
+        <textarea id="texto" required></textarea>
+        <div class="fila"><button class="btn" type="submit">Enviar</button></div>
+        <div class="aviso" id="aviso"></div>
+      </form>
+    </div>
+  </main>
+  <footer class="pie">
+    <div class="pie-inner">
+      <p class="legal">RapiTrip · Lima, Perú · 977 341 754</p>
+      <nav>
+        <a href="terminos.html">Términos</a>
+        <a href="devoluciones.html">Cambios y devoluciones</a>
+        <a href="reclamaciones.html">Libro de reclamaciones</a>
+      </nav>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("mensaje").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const aviso = document.getElementById("aviso");
+      aviso.style.display = "block";
+      aviso.textContent = "Mensaje recibido. Te respondemos al correo que indicaste, en el horario de 7:00 a 22:00.";
+    });
+  </script>
+</body>
+</html>
