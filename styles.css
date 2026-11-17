@@ -83,13 +83,14 @@ nav a:hover { color: #000; }
 .hero { padding: 28px 0 8px; }
 .hero-panel {
   background: #111111;
-  color: #fff;
+  color: #ffffff;
   border-radius: 28px;
   padding: 56px 52px;
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr;
+  grid-template-columns: minmax(0, 1.4fr) minmax(220px, 0.7fr);
   gap: 32px;
   align-items: center;
+  forced-color-adjust: none;
 }
 .hero h1, .seccion h1, .seccion h2 { letter-spacing: -0.045em; margin: 0 0 12px; }
 .hero h1 { font-size: 56px; line-height: 0.98; max-width: 12ch; }
