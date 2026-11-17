@@ -16,7 +16,7 @@
   <main class="seccion">
     <div class="wrap" style="max-width:760px">
       <h1>Libro de reclamaciones</h1>
-      <p>Eric Manuel Estrada Castillo · RapiTrip · RUC 10705521447 · Lima, Perú · 977 341 754 · erickiio1415@gmail.com</p>
+      <p>Eric Manuel Estrada Castillo · RapiTrip · RUC 10705521447 · Jr. José María Barreto 298, Lima, Perú · 977 341 754 · erickiio1415@gmail.com</p>
       <p>Libro de reclamaciones virtual, en esta misma página, conforme al Código de Protección y Defensa del Consumidor. No usa formularios ni archivos externos. Respondemos en un plazo máximo de 15 días hábiles. Si hace falta más información, el plazo puede ampliarse 15 días hábiles más, y te lo avisamos.</p>
       <form id="libro">
         <label for="fecha">Fecha</label>
@@ -72,7 +72,7 @@
       const codigo = "LR-" + new Date().getFullYear() + "-" + Date.now().toString().slice(-5);
       const aviso = document.getElementById("aviso");
       aviso.style.display = "block";
-      aviso.textContent = "Constancia " + codigo + ". Proveedor: Eric Manuel Estrada Castillo, RUC 10705521447, RapiTrip, Lima. Consumidor: " + document.getElementById("nombre").value + ", " + document.getElementById("dni").value + ". " + document.getElementById("tipo").value.split(":")[0] + " por " + document.getElementById("bien").value + ". Fecha: " + fecha.value + ". Respuesta máxima: 15 días hábiles al correo " + document.getElementById("correo").value + ".";
+      aviso.textContent = "Constancia " + codigo + ". Proveedor: Eric Manuel Estrada Castillo, RUC 10705521447, RapiTrip, Jr. José María Barreto 298, Lima. Consumidor: " + document.getElementById("nombre").value + ", " + document.getElementById("dni").value + ". " + document.getElementById("tipo").value.split(":")[0] + " por " + document.getElementById("bien").value + ". Fecha: " + fecha.value + ". Respuesta máxima: 15 días hábiles al correo " + document.getElementById("correo").value + ".";
     });
   </script>
 </body>
