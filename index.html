@@ -4,12 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RapiTrip | Viajes en taxi por aplicativo</title>
+  <link rel="icon" href="img/logo.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="barra">
     <div class="barra-inner">
-      <a class="marca" href="index.html"><span class="logo"></span> RapiTrip</a>
+      <a class="marca" href="index.html"><img class="logo" src="img/logo.png" alt="Logo de RapiTrip"> RapiTrip</a>
       <nav>
         <a href="index.html#servicios">Servicios</a>
         <a href="contacto.html">Contacto</a>
@@ -21,12 +22,17 @@
 
   <section class="hero">
     <div class="wrap">
-      <p class="nota">Lima, Perú</p>
-      <h1>Pide un taxi y sigue el viaje en el mapa.</h1>
-      <p class="bajada">RapiTrip conecta pasajeros con conductores en Lima. Eliges el servicio, ves el precio antes de confirmar y pagas el viaje al finalizar.</p>
-      <div class="fila">
-        <a class="btn" href="solicitar.html">Solicitar viaje</a>
-        <a class="btn linea" href="index.html#servicios">Ver precios</a>
+      <div class="hero-panel">
+        <div>
+          <p class="nota">Lima, Perú</p>
+          <h1>Pide un taxi y sigue el viaje en el mapa.</h1>
+          <p class="bajada">RapiTrip conecta pasajeros con conductores en Lima. Eliges el servicio, ves el precio antes de confirmar y pagas el viaje al finalizar.</p>
+          <div class="fila">
+            <a class="btn" href="solicitar.html">Solicitar viaje</a>
+            <a class="btn linea" href="index.html#servicios">Ver precios</a>
+          </div>
+        </div>
+        <img class="hero-logo" src="img/logo.png" alt="Logo de RapiTrip">
       </div>
     </div>
   </section>
@@ -34,7 +40,7 @@
   <section class="seccion" id="servicios">
     <div class="wrap">
       <h2>Servicios</h2>
-      <p>La tarifa se calcula con una base, los kilómetros y los minutos del recorrido. El precio que ves al pedir es el que se cobra al finalizar.</p>
+      <p class="intro">La tarifa se calcula con una base, los kilómetros y los minutos del recorrido. El precio que ves al pedir es el que se cobra al finalizar.</p>
       <div class="grid">
         <article class="card">
           <img class="ilustracion" src="img/economico.svg" alt="Auto del servicio Económico">
@@ -81,20 +87,24 @@
   </section>
 
   <section class="seccion">
-    <div class="wrap datos">
+    <div class="wrap">
+      <h2>Cómo se pide</h2>
+      <div class="pasos">
+        <div class="paso"><strong>01</strong> Indicas el destino y el servicio.</div>
+        <div class="paso"><strong>02</strong> Ves el precio antes de confirmar.</div>
+        <div class="paso"><strong>03</strong> Un conductor acepta y te recoge.</div>
+        <div class="paso"><strong>04</strong> Al llegar, pagas con tarjeta, Yape o efectivo.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="wrap">
       <div class="caja">
         <h2>Contacto</h2>
         <p><strong>RapiTrip</strong><br>Eric Manuel Estrada Castillo<br>RUC 10705521447</p>
         <p>Teléfono: <a href="tel:+51977341754">977 341 754</a><br>Correo: <a href="mailto:erickiio1415@gmail.com">erickiio1415@gmail.com</a><br>Dirección: Jr. José María Barreto 298, Lima, Perú</p>
         <a class="btn linea" href="contacto.html">Escribir</a>
-      </div>
-      <div class="caja">
-        <h2>Cómo se pide</h2>
-        <p>1. Indicas el destino y el servicio.</p>
-        <p>2. Ves el precio antes de confirmar.</p>
-        <p>3. Un conductor acepta y te recoge.</p>
-        <p>4. Al llegar, pagas en la app con tarjeta, Yape o efectivo.</p>
-        <a class="btn" href="solicitar.html">Solicitar viaje</a>
       </div>
     </div>
   </section>
