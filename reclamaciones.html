@@ -17,8 +17,10 @@
     <div class="wrap" style="max-width:760px">
       <h1>Libro de reclamaciones</h1>
       <p>Eric Manuel Estrada Castillo · RapiTrip · RUC 10705521447 · Lima, Perú · 977 341 754 · erickiio1415@gmail.com</p>
-      <p>Conforme al Código de Protección y Defensa del Consumidor. Respondemos en un plazo máximo de 15 días hábiles. La hoja de reclamación se genera en esta página.</p>
+      <p>Libro de reclamaciones virtual, en esta misma página, conforme al Código de Protección y Defensa del Consumidor. No usa formularios ni archivos externos. Respondemos en un plazo máximo de 15 días hábiles. Si hace falta más información, el plazo puede ampliarse 15 días hábiles más, y te lo avisamos.</p>
       <form id="libro">
+        <label for="fecha">Fecha</label>
+        <input id="fecha" readonly>
         <label for="nombre">Nombre del consumidor</label>
         <input id="nombre" required>
         <label for="dni">DNI o CE</label>
@@ -39,6 +41,8 @@
           <option>Viaje Económico</option>
           <option>Viaje Comfort</option>
           <option>Viaje Executive VIP</option>
+          <option>Viaje Aeropuerto</option>
+          <option>Viaje Programado</option>
         </select>
         <label for="monto">Monto (S/)</label>
         <input id="monto" inputmode="decimal">
@@ -61,12 +65,14 @@
     </div>
   </footer>
   <script>
+    const fecha = document.getElementById("fecha");
+    fecha.value = new Date().toLocaleString("es-PE");
     document.getElementById("libro").addEventListener("submit", function (e) {
       e.preventDefault();
       const codigo = "LR-" + new Date().getFullYear() + "-" + Date.now().toString().slice(-5);
       const aviso = document.getElementById("aviso");
       aviso.style.display = "block";
-      aviso.textContent = "Hoja " + codigo + " registrada el " + new Date().toLocaleString("es-PE") + ". Guardamos tu " + document.getElementById("tipo").value.split(":")[0].toLowerCase() + " y te respondemos en un máximo de 15 días hábiles al correo indicado.";
+      aviso.textContent = "Constancia " + codigo + ". Proveedor: Eric Manuel Estrada Castillo, RUC 10705521447, RapiTrip, Lima. Consumidor: " + document.getElementById("nombre").value + ", " + document.getElementById("dni").value + ". " + document.getElementById("tipo").value.split(":")[0] + " por " + document.getElementById("bien").value + ". Fecha: " + fecha.value + ". Respuesta máxima: 15 días hábiles al correo " + document.getElementById("correo").value + ".";
     });
   </script>
 </body>

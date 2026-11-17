@@ -83,7 +83,7 @@ nav a { text-decoration: none; font-size: 14px; font-weight: 600; }
 .fila { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
 .nota { color: var(--suave); font-size: 14px; }
 
-.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
 .card, .caja, form {
   background: var(--blanco);
   border: 1.5px solid var(--tinta);
