@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Solicitar viaje | RapiTrip</title>
+  <title>Proceso de compra | RapiTrip</title>
   <link rel="icon" href="img/logo.png">
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
   <header class="barra">
@@ -16,40 +16,60 @@
         <a href="contacto.html">Contacto</a>
         <a href="reclamaciones.html">Libro de reclamaciones</a>
       </nav>
-      <a class="btn" href="solicitar.html">Solicitar viaje</a>
+      <a class="btn" href="solicitar.html">Comprar</a>
     </div>
   </header>
   <main class="seccion">
-    <div class="wrap" style="max-width:720px">
-      <h1>Solicitar viaje</h1>
-      <p>Elige el servicio y deja tu destino. Te confirmamos el pedido en esta misma página. El cobro se realiza al finalizar el viaje.</p>
-      <form id="pedido">
-        <label for="nombre">Nombre</label>
-        <input id="nombre" name="nombre" required>
-        <label for="telefono">Celular</label>
-        <input id="telefono" name="telefono" required inputmode="tel">
-        <label for="origen">Origen</label>
-        <input id="origen" name="origen" required placeholder="Dirección de recojo">
-        <label for="destino">Destino</label>
-        <input id="destino" name="destino" required placeholder="A dónde vas">
-        <label for="servicio">Servicio</label>
-        <select id="servicio" name="servicio">
-          <option>Económico · desde S/ 8.00</option>
-          <option>Comfort · desde S/ 10.00</option>
-          <option>Executive VIP · desde S/ 13.00</option>
-          <option>Aeropuerto · desde S/ 45.00</option>
-          <option>Programado · desde S/ 12.00</option>
-        </select>
-        <div class="fila">
-          <button class="btn" type="submit">Confirmar solicitud</button>
+    <div class="wrap">
+      <div class="panel">
+        <h1>Proceso de compra</h1>
+        <div class="fases">
+          <span>1. Servicio</span>
+          <span>2. Tus datos</span>
+          <span>3. Pago</span>
         </div>
+        <form id="pedido" class="compra">
+          <div>
+            <img id="foto" src="img/economico.jpg" alt="Servicio elegido">
+            <h2 id="nombre">Económico</h2>
+            <p id="detalle">Autos compactos para un viaje directo.</p>
+            <p class="nota">Precio unitario: <strong id="unitario">S/ 8.00</strong></p>
+            <div class="cantidad">
+              <span>Cantidad</span>
+              <button type="button" id="menos">−</button>
+              <strong id="cantidad">1</strong>
+              <button type="button" id="mas">+</button>
+            </div>
+          </div>
+          <div>
+            <label for="servicio">Servicio</label>
+            <select id="servicio" name="servicio"></select>
+            <label for="cliente">Nombre</label>
+            <input id="cliente" required>
+            <label for="telefono">Celular</label>
+            <input id="telefono" required inputmode="tel">
+            <label for="origen">Origen</label>
+            <input id="origen" required placeholder="Dirección de recojo">
+            <label for="destino">Destino</label>
+            <input id="destino" required placeholder="A dónde vas">
+            <label>Medio de pago</label>
+            <div class="opciones">
+              <label><input type="radio" name="pago" value="Tarjeta" checked> Tarjeta</label>
+              <label><input type="radio" name="pago" value="Yape"> Yape</label>
+              <label><input type="radio" name="pago" value="Efectivo"> Efectivo</label>
+            </div>
+            <div class="linea-compra"><span>Subtotal</span><strong id="subtotal">S/ 8.00</strong></div>
+            <div class="linea-compra"><span>Total a pagar</span><strong class="total" id="total">S/ 8.00</strong></div>
+            <button class="btn" id="pagar" type="submit">Pagar S/ 8.00</button>
+          </div>
+        </form>
         <div class="aviso" id="aviso"></div>
-      </form>
+      </div>
     </div>
   </main>
   <footer class="pie">
     <div class="pie-inner">
-      <p class="legal">RapiTrip · Eric Manuel Estrada Castillo · RUC 10705521447</p>
+      <p class="legal">RapiTrip · Eric Manuel Estrada Castillo · RUC 10705521447 · Jr. José María Barreto 298, Lima, Perú</p>
       <nav>
         <a href="terminos.html">Términos</a>
         <a href="devoluciones.html">Cambios y devoluciones</a>
@@ -58,21 +78,51 @@
     </div>
   </footer>
   <script>
-    const params = new URLSearchParams(location.search);
-    const pedido = params.get("servicio");
-    if (pedido) {
-      const lista = document.getElementById("servicio");
-      for (const op of lista.options) {
-        if (op.text.startsWith(pedido)) lista.value = op.text;
-      }
+    const catalogo = [
+      { id: "Economico", nombre: "Económico", precio: 8, foto: "img/economico.jpg", texto: "Autos compactos para un viaje directo." },
+      { id: "Comfort", nombre: "Comfort", precio: 10, foto: "img/comfort.jpg", texto: "Autos más espaciosos, con aire acondicionado." },
+      { id: "Executive VIP", nombre: "Executive VIP", precio: 13, foto: "img/vip.jpg", texto: "Sedán y conductor con mejor calificación." },
+      { id: "Aeropuerto", nombre: "Aeropuerto", precio: 45, foto: "img/aeropuerto.jpg", texto: "Recojo o traslado al Aeropuerto Jorge Chávez." },
+      { id: "Programado", nombre: "Programado", precio: 12, foto: "img/programado.jpg", texto: "Reservas la hora de recojo. El conductor llega a la dirección que indicas." }
+    ];
+    const lista = document.getElementById("servicio");
+    catalogo.forEach(function (item) {
+      const op = document.createElement("option");
+      op.value = item.id;
+      op.textContent = item.nombre + " · S/ " + item.precio.toFixed(2);
+      lista.appendChild(op);
+    });
+    const pedido = new URLSearchParams(location.search).get("servicio");
+    if (pedido && catalogo.some(function (item) { return item.id === pedido; })) lista.value = pedido;
+    let cantidad = 1;
+    function soles(n) { return "S/ " + n.toFixed(2); }
+    function pintar() {
+      const item = catalogo.find(function (s) { return s.id === lista.value; });
+      const total = item.precio * cantidad;
+      document.getElementById("foto").src = item.foto;
+      document.getElementById("foto").alt = item.nombre;
+      document.getElementById("nombre").textContent = item.nombre;
+      document.getElementById("detalle").textContent = item.texto;
+      document.getElementById("unitario").textContent = soles(item.precio);
+      document.getElementById("cantidad").textContent = String(cantidad);
+      document.getElementById("subtotal").textContent = soles(total);
+      document.getElementById("total").textContent = soles(total);
+      document.getElementById("pagar").textContent = "Pagar " + soles(total);
     }
+    lista.addEventListener("change", pintar);
+    document.getElementById("menos").addEventListener("click", function () { if (cantidad > 1) { cantidad -= 1; pintar(); } });
+    document.getElementById("mas").addEventListener("click", function () { if (cantidad < 5) { cantidad += 1; pintar(); } });
     document.getElementById("pedido").addEventListener("submit", function (e) {
       e.preventDefault();
+      const item = catalogo.find(function (s) { return s.id === lista.value; });
+      const total = item.precio * cantidad;
+      const pago = document.querySelector("input[name=pago]:checked").value;
       const codigo = "RT-" + Date.now().toString().slice(-6);
       const aviso = document.getElementById("aviso");
       aviso.style.display = "block";
-      aviso.textContent = "Solicitud " + codigo + " registrada. Un conductor de " + document.getElementById("servicio").value.split("·")[0].trim() + " puede tomar el viaje. El precio final se muestra antes de pagar.";
+      aviso.textContent = "Compra " + codigo + " confirmada. Servicio: " + item.nombre + ". Cantidad: " + cantidad + ". Precio unitario: " + soles(item.precio) + ". Total: " + soles(total) + ". Pago: " + pago + ". Pasajero: " + document.getElementById("cliente").value + ", " + document.getElementById("telefono").value + ". Recojo: " + document.getElementById("origen").value + ". Destino: " + document.getElementById("destino").value + ". Proveedor: Eric Manuel Estrada Castillo, RUC 10705521447, Jr. José María Barreto 298, Lima.";
     });
+    pintar();
   </script>
 </body>
 </html>
