@@ -191,6 +191,9 @@ nav a:hover { color: #000; }
 .opciones label { margin: 0; font-weight: 700; background: #fafafa; border: 1px solid #d9d9de; border-radius: 12px; padding: 10px 12px; }
 .cantidad { display: flex; align-items: center; gap: 10px; }
 .cantidad button { width: 40px; height: 40px; border-radius: 12px; border: 1px solid #d9d9de; background: #fff; font: inherit; font-weight: 800; cursor: pointer; }
+.acepto { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; margin-top: 16px; }
+.acepto input { width: auto; margin-top: 4px; }
+.acepto a { text-decoration: underline; }
 .card, .caja, form {
   background: var(--blanco);
   border: 1px solid var(--linea);
