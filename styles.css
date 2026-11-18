@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap");
 
 :root {
   --amarillo: #ffb300;
@@ -14,7 +14,7 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: Manrope, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: Outfit, "Segoe UI", Helvetica, Arial, sans-serif;
   color: var(--tinta);
   background: var(--fondo);
   line-height: 1.55;
@@ -159,13 +159,28 @@ nav a:hover { color: #000; }
 .grid .card { grid-column: span 2; }
 .grid .card:nth-child(4) { grid-column: 2 / span 2; }
 .grid .card:nth-child(5) { grid-column: 4 / span 2; }
-.contacto-panel {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+.fichas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.ficha {
+  display: block;
+  background: #f6f6f7;
+  border-radius: 16px;
+  padding: 16px 18px;
+  text-decoration: none;
+  min-height: 92px;
 }
-.contacto-panel h2 { margin-bottom: 12px; }
+.ficha span {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a6500;
+}
+.ficha strong { display: block; margin-top: 8px; font-size: 16px; line-height: 1.35; }
+.datos { align-items: stretch; }
+.datos .caja, .datos form { display: flex; flex-direction: column; }
+.datos form textarea { flex: 1; min-height: 160px; }
+.datos form .btn { align-self: flex-start; }
 .compra { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 16px; align-items: start; }
 .compra img { width: 100%; height: 220px; object-fit: cover; border-radius: 16px; }
 .linea-compra { display: flex; justify-content: space-between; gap: 12px; margin: 8px 0; }
@@ -183,8 +198,16 @@ nav a:hover { color: #000; }
   padding: 18px;
   box-shadow: 0 10px 30px rgba(17, 17, 17, 0.04);
 }
-.card h3 { margin: 14px 0 6px; font-size: 20px; }
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.card h3 { margin: 14px 0 6px; font-size: 20px; min-height: 2.5em; }
 .card p { color: var(--suave); }
+.card .desc { min-height: 4.8em; margin: 0; }
+.card .nota { min-height: 3.2em; }
+.card .btn { margin-top: auto; }
 .precio { font-size: 28px; font-weight: 800; margin: 10px 0 4px; color: var(--tinta); }
 .ilustracion {
   width: 100%;
@@ -193,7 +216,7 @@ nav a:hover { color: #000; }
   border-radius: 14px;
   background: var(--amarillo-suave);
 }
-.card .btn { width: 100%; margin-top: 12px; }
+.card .btn { width: 100%; margin-top: auto; }
 .datos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .caja h2, form h2 { margin-top: 0; }
 label { display: block; font-size: 13px; font-weight: 700; margin: 14px 0 6px; }
@@ -232,7 +255,8 @@ textarea { min-height: 120px; resize: vertical; }
   .grid .card, .grid .card:nth-child(4), .grid .card:nth-child(5) { grid-column: auto; }
   .pasos { grid-template-columns: 1fr 1fr; }
   .paso:nth-child(3) { border-left: 0; }
-  .panel-cabeza, .contacto-panel { flex-direction: column; align-items: flex-start; }
+  .panel-cabeza { flex-direction: column; align-items: flex-start; }
+  .fichas { grid-template-columns: 1fr; }
 }
 @media (max-width: 860px) {
   .hero-panel { grid-template-columns: 1fr; padding: 32px 22px; }

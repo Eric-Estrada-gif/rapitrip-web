@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RapiTrip | Viajes en taxi por aplicativo</title>
   <link rel="icon" href="img/logo.png">
-  <link rel="stylesheet" href="styles.css?v=4">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
   <header class="barra">
@@ -48,7 +48,7 @@
         <article class="card">
           <img class="ilustracion" src="img/economico.jpg" alt="Auto del servicio Económico">
           <h3>Económico</h3>
-          <p>Autos compactos para un viaje directo.</p>
+          <p class="desc">Autos compactos para un viaje directo.</p>
           <p class="precio">Desde S/ 8.00</p>
           <p class="nota">Base S/ 5.00 + S/ 1.20 por km + S/ 0.15 por minuto.</p>
           <a class="btn" href="solicitar.html?servicio=Economico">Comprar</a>
@@ -56,7 +56,7 @@
         <article class="card">
           <img class="ilustracion" src="img/comfort.jpg" alt="Auto del servicio Comfort">
           <h3>Comfort</h3>
-          <p>Autos más espaciosos, con aire acondicionado.</p>
+          <p class="desc">Autos más espaciosos, con aire acondicionado.</p>
           <p class="precio">Desde S/ 10.00</p>
           <p class="nota">La tarifa económica más 25%.</p>
           <a class="btn" href="solicitar.html?servicio=Comfort">Comprar</a>
@@ -64,7 +64,7 @@
         <article class="card">
           <img class="ilustracion" src="img/vip.jpg" alt="Auto del servicio Executive VIP">
           <h3>Executive VIP</h3>
-          <p>Sedán y conductor con mejor calificación.</p>
+          <p class="desc">Sedán y conductor con mejor calificación.</p>
           <p class="precio">Desde S/ 13.00</p>
           <p class="nota">La tarifa económica más 60%.</p>
           <a class="btn" href="solicitar.html?servicio=Executive%20VIP">Comprar</a>
@@ -72,7 +72,7 @@
         <article class="card">
           <img class="ilustracion" src="img/aeropuerto.jpg" alt="Traslado al aeropuerto">
           <h3>Aeropuerto</h3>
-          <p>Recojo o traslado al Aeropuerto Jorge Chávez, con el precio visible antes de salir.</p>
+          <p class="desc">Recojo o traslado al Aeropuerto Jorge Chávez, con el precio visible antes de salir.</p>
           <p class="precio">Desde S/ 45.00</p>
           <p class="nota">Tarifa fija de referencia para el traslado de aeropuerto en Lima.</p>
           <a class="btn" href="solicitar.html?servicio=Aeropuerto">Comprar</a>
@@ -80,7 +80,7 @@
         <article class="card">
           <img class="ilustracion" src="img/programado.jpg" alt="Viaje reservado para una hora">
           <h3>Programado</h3>
-          <p>Reservas la hora de recojo. El conductor llega a la dirección que indicas.</p>
+          <p class="desc">Reservas la hora de recojo. El conductor llega a la dirección que indicas.</p>
           <p class="precio">Desde S/ 12.00</p>
           <p class="nota">Base del servicio Comfort, con la hora de salida que elijas.</p>
           <a class="btn" href="solicitar.html?servicio=Programado">Comprar</a>
@@ -125,13 +125,17 @@
 
   <section class="seccion">
     <div class="wrap">
-      <div class="panel contacto-panel">
-        <div>
+      <div class="panel">
+        <div class="panel-cabeza">
           <h2>Contacto</h2>
-          <p><strong>RapiTrip</strong><br>Eric Manuel Estrada Castillo<br>RUC 10705521447</p>
-          <p>Teléfono: <a href="tel:+51977341754">977 341 754</a><br>Correo: <a href="mailto:erickiio1415@gmail.com">erickiio1415@gmail.com</a><br>Dirección: Jr. José María Barreto 298, Lima, Perú</p>
+          <p>Eric Manuel Estrada Castillo · RUC 10705521447 · todos los días, de 7:00 a 22:00.</p>
         </div>
-        <a class="btn" href="contacto.html">Escribir</a>
+        <div class="fichas">
+          <a class="ficha" href="tel:+51977341754"><span>Teléfono</span><strong>977 341 754</strong></a>
+          <a class="ficha" href="mailto:erickiio1415@gmail.com"><span>Correo</span><strong>erickiio1415@gmail.com</strong></a>
+          <div class="ficha"><span>Dirección</span><strong>Jr. José María Barreto 298, Lima, Perú</strong></div>
+        </div>
+        <div class="fila"><a class="btn" href="contacto.html">Escribir</a></div>
       </div>
     </div>
   </section>
