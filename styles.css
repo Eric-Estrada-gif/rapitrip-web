@@ -105,30 +105,67 @@ nav a:hover { color: #000; }
 .fila { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
 .nota { color: var(--suave); font-size: 14px; }
 
-.seccion { padding: 56px 0; }
-.seccion h2 { font-size: 36px; }
+.seccion { padding: 14px 0; }
+.seccion h2 { font-size: 32px; margin: 0; }
 .intro { max-width: 62ch; color: var(--suave); margin-top: 0; }
+.panel {
+  background: var(--blanco);
+  border: 1px solid var(--linea);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 12px 32px rgba(17, 17, 17, 0.04);
+}
+.panel-cabeza {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 28px;
+  margin-bottom: 22px;
+}
+.panel-cabeza p { margin: 0; max-width: 48ch; color: var(--suave); }
 
 .pasos {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  margin-top: 28px;
+  gap: 0;
+  margin: 0;
+  background: #f6f6f7;
+  border-radius: 18px;
+  overflow: hidden;
 }
 .paso {
-  background: var(--blanco);
-  border: 1px solid var(--linea);
-  border-radius: 18px;
-  padding: 18px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 22px 20px;
 }
-.paso strong {
-  display: block;
-  font-size: 13px;
-  color: #8a6500;
-  margin-bottom: 6px;
+.paso + .paso { border-left: 1px solid var(--linea); }
+.paso span {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: var(--amarillo);
+  color: var(--tinta);
+  font-weight: 800;
 }
+.paso h3 { margin: 14px 0 6px; font-size: 18px; }
+.paso p { margin: 0; color: var(--suave); }
 
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+.grid .card { grid-column: span 2; }
+.grid .card:nth-child(4) { grid-column: 2 / span 2; }
+.grid .card:nth-child(5) { grid-column: 4 / span 2; }
+.contacto-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.contacto-panel h2 { margin-bottom: 12px; }
 .card, .caja, form {
   background: var(--blanco);
   border: 1px solid var(--linea);
@@ -180,10 +217,18 @@ textarea { min-height: 120px; resize: vertical; }
 .pie a:hover { color: var(--amarillo); }
 .legal { font-size: 13px; color: #bdbdbd; }
 
+@media (max-width: 980px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+  .grid .card, .grid .card:nth-child(4), .grid .card:nth-child(5) { grid-column: auto; }
+  .pasos { grid-template-columns: 1fr 1fr; }
+  .paso:nth-child(3) { border-left: 0; }
+  .panel-cabeza, .contacto-panel { flex-direction: column; align-items: flex-start; }
+}
 @media (max-width: 860px) {
   .hero-panel { grid-template-columns: 1fr; padding: 32px 22px; }
   .hero h1 { font-size: 40px; }
   .hero-logo { margin: 8px auto 0; width: 180px; }
-  .pasos, .datos { grid-template-columns: 1fr; }
+  .pasos, .datos, .grid { grid-template-columns: 1fr; }
+  .paso + .paso { border-left: 0; border-top: 1px solid var(--linea); }
   .barra-inner { flex-wrap: wrap; padding: 12px 0; }
 }

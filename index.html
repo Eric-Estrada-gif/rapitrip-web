@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RapiTrip | Viajes en taxi por aplicativo</title>
   <link rel="icon" href="img/logo.png">
-  <link rel="stylesheet" href="styles.css?v=2">
+  <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
   <header class="barra">
@@ -39,8 +39,11 @@
 
   <section class="seccion" id="servicios">
     <div class="wrap">
-      <h2>Servicios</h2>
-      <p class="intro">La tarifa se calcula con una base, los kilómetros y los minutos del recorrido. El precio que ves al pedir es el que se cobra al finalizar.</p>
+      <div class="panel">
+      <div class="panel-cabeza">
+        <h2>Servicios</h2>
+        <p>La tarifa se calcula con una base, los kilómetros y los minutos del recorrido. El precio que ves al pedir es el que se cobra al finalizar.</p>
+      </div>
       <div class="grid">
         <article class="card">
           <img class="ilustracion" src="img/economico.svg" alt="Auto del servicio Económico">
@@ -83,28 +86,52 @@
           <a class="btn" href="solicitar.html?servicio=Programado">Pedir Programado</a>
         </article>
       </div>
-    </div>
-  </section>
-
-  <section class="seccion">
-    <div class="wrap">
-      <h2>Cómo se pide</h2>
-      <div class="pasos">
-        <div class="paso"><strong>01</strong> Indicas el destino y el servicio.</div>
-        <div class="paso"><strong>02</strong> Ves el precio antes de confirmar.</div>
-        <div class="paso"><strong>03</strong> Un conductor acepta y te recoge.</div>
-        <div class="paso"><strong>04</strong> Al llegar, pagas con tarjeta, Yape o efectivo.</div>
       </div>
     </div>
   </section>
 
   <section class="seccion">
     <div class="wrap">
-      <div class="caja">
-        <h2>Contacto</h2>
-        <p><strong>RapiTrip</strong><br>Eric Manuel Estrada Castillo<br>RUC 10705521447</p>
-        <p>Teléfono: <a href="tel:+51977341754">977 341 754</a><br>Correo: <a href="mailto:erickiio1415@gmail.com">erickiio1415@gmail.com</a><br>Dirección: Jr. José María Barreto 298, Lima, Perú</p>
-        <a class="btn linea" href="contacto.html">Escribir</a>
+      <div class="panel">
+        <div class="panel-cabeza">
+          <h2>Cómo se pide</h2>
+          <p>El pedido se confirma en esta página. El precio queda visible antes de que salga el conductor.</p>
+        </div>
+        <div class="pasos">
+          <div class="paso">
+            <span>01</span>
+            <h3>Elige el servicio</h3>
+            <p>Económico, Comfort, VIP, aeropuerto o un viaje programado.</p>
+          </div>
+          <div class="paso">
+            <span>02</span>
+            <h3>Indica el recorrido</h3>
+            <p>Escribes el origen, el destino y tu celular. Ves el precio antes de confirmar.</p>
+          </div>
+          <div class="paso">
+            <span>03</span>
+            <h3>Te recogen</h3>
+            <p>Un conductor acepta el pedido y llega al punto que indicaste.</p>
+          </div>
+          <div class="paso">
+            <span>04</span>
+            <h3>Pagas al llegar</h3>
+            <p>Tarjeta, Yape o efectivo. El cobro es el precio mostrado al pedir.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <div class="wrap">
+      <div class="panel contacto-panel">
+        <div>
+          <h2>Contacto</h2>
+          <p><strong>RapiTrip</strong><br>Eric Manuel Estrada Castillo<br>RUC 10705521447</p>
+          <p>Teléfono: <a href="tel:+51977341754">977 341 754</a><br>Correo: <a href="mailto:erickiio1415@gmail.com">erickiio1415@gmail.com</a><br>Dirección: Jr. José María Barreto 298, Lima, Perú</p>
+        </div>
+        <a class="btn" href="contacto.html">Escribir</a>
       </div>
     </div>
   </section>
